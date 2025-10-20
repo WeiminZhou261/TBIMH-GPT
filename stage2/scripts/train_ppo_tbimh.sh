@@ -7,12 +7,11 @@ export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
 export GPUS_PER_NODE=8
 export OMP_NUM_THREADS=8
 export PYTHONPATH="$PWD:$PYTHONPATH"
-# 如果需要离线运行（本地都有权重/依赖），可打开下一行
 # export TRANSFORMERS_OFFLINE=1
 
-# 数据与模型根目录
-export DATA_DIR="stage2/data"      # 例如: /data/tbimh_rlhf
-export MODEL_DIR="."               # 例如: /models/tbimh
+
+export DATA_DIR="stage2/data"     
+export MODEL_DIR="."               
 
 # ==================== 模型配置 ====================
 VISION_TOWER="openai/clip-vit-large-patch14-336"
@@ -40,7 +39,6 @@ LEARNING_RATE=3e-5
 KL_COEF=0.1
 TOTAL_EPOCHS=4
 
-# 采样与更新 batch（总量=每卡batch * GPU数 * 累积步数，脚本内部会检查整除关系）
 ROLLOUT_BATCH_SIZE=256               # 总采样 batch
 STEP_BATCH_SIZE=128                  # 总更新 batch
 ROLLOUT_PER_DEVICE_BATCH_SIZE=16     # 每卡采样 batch
