@@ -85,7 +85,8 @@ Dependencies include:
 ## 🧬 Data
 
 This repository does **not** include any patient data.  
-To train TBIMH-GPT, you need access to **de-identified** CTA imaging, textual records, and structured clinical variables.
+To train TBIMH-GPT, you need access to **de-identified** CTA imaging, textual records, and structured clinical variables. 
+You can also contact our corresponding author by email. After confirming the academic purpose, we will provide a fully de-identified dataset — with all patient-identifiable information removed — within two weeks for research use.
 
 Please ensure full compliance with **ethical and privacy regulations**.
 
