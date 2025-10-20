@@ -17,9 +17,9 @@ It introduces a **two-stage fine-tuning strategy** to adapt a general MLLM (e.g.
   - General medical instruction tuning
   - Medical QA fine-tuning
 - **Stage 2: TBIMH-specific RLHF**
-  - Reinforcement Learning from Human Feedback (RLHF)
-  - Incorporation of real-world TBIMH clinical case feedback
-  - Improved prognostic accuracy under limited data conditions
+  - Train the Reward Model
+  - Initialize the Policy Model
+  - RLHF Main Training (PPO Optimization)
 
 ---
 
