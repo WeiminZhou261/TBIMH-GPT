@@ -1,0 +1,26 @@
+deepspeed llava/train/train.py \
+  --deepspeed ./scripts/zero2.json \
+  --model_name_or_path weights/vicuna-13b-v1.5 \
+  --version plain \
+  --data_path TBIMH_data/TBIMHS.json \
+  --image_folder TBIMH_data/images \
+  --vision_tower openai/clip-vit-large-patch14-336 \
+  --mm_projector_type mlp2x_gelu \
+  --tune_mm_mlp_adapter True \
+  --mm_vision_select_layer -2 \
+  --mm_use_im_start_end False \
+  --mm_use_im_patch_token False \
+  --bf16 True \
+  --output_dir ./checkpoints/tbimh_step1_align \
+  --num_train_epochs 1 \
+  --per_device_train_batch_size 32 \
+  --gradient_accumulation_steps 1 \
+  --learning_rate 5e-4 \
+  --mm_projector_lr 1e-4 \
+  --warmup_ratio 0.03 \
+  --lr_scheduler_type cosine \
+  --model_max_length 2048 \
+  --gradient_checkpointing True \
+  --dataloader_num_workers 4 \
+  --lazy_preprocess True \
+  --report_to wandb
