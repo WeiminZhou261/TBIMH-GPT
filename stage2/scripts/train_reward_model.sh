@@ -8,22 +8,22 @@ export GPUS_PER_NODE=8
 export OMP_NUM_THREADS=8
 export PYTHONPATH="$PWD:$PYTHONPATH"
 
-# ====== 路径（按你的仓库调整）======
-export DATA_DIR="stage2/data"           # 例如: /data/tbimh_rlhf
-export MODEL_DIR="."        # 例如: /models/tbimh
-export LOG_DIR="stage2/logs"            # 可选
 
-# ====== 模型配置 ======
+export DATA_DIR="stage2/data"          
+export MODEL_DIR="."        
+export LOG_DIR="stage2/logs"           
+
+
 VISION_TOWER="openai/clip-vit-large-patch14-336"
-# !!! 用 Stage 1（第一阶段第二步）产出的检查点作为RM背后的骨干模型 !!!
-LM_MODEL_NAME="./checkpoints/tbimh_step3_vqa_full-13b"             # 例如: checkpoints/tbimh_step2_instruct-13b
+
+LM_MODEL_NAME="./checkpoints/tbimh_step3_vqa_full-13b"           
 
 # ====== 数据配置 ======
 # 偏好数据 = 医生选择 A/B 哪个回答更好（pairwise preference）
-PREFERENCE_DATA="tbimh_preference_train.jsonl"       # 训练
-PREFERENCE_EVAL="tbimh_preference_eval.jsonl"        # 验证（可用训练集子集先替代）
-# 影像根目录（CTA等），不是 COCO 路径
-IMAGE_ROOT="tbimh_images"                             # 例如: /data/tbimh/images
+PREFERENCE_DATA="tbimh_preference_train.jsonl"       
+PREFERENCE_EVAL="tbimh_preference_eval.jsonl"      
+
+IMAGE_ROOT="tbimh_images"                           
 
 # ====== 保存配置 ======
 MODEL_NAME="TBIMH-RM-13b-lora"
