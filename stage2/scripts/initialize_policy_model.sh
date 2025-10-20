@@ -2,24 +2,23 @@
 set -e
 set -x
 
-# ====== 硬件与环境 ======
+
 export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
 export GPUS_PER_NODE=8
 export OMP_NUM_THREADS=8
 export PYTHONPATH="$PWD:$PYTHONPATH"
 
-# ====== 路径（与第一步保持一致）======
 export DATA_DIR="stage2/data"
 export MODEL_DIR="stage2/models"
 export LOG_DIR="stage2/logs"
 
 # ====== 模型配置 ======
 VISION_TOWER="openai/clip-vit-large-patch14-336"
-# 用 Stage-1 Step3 产出的 SFT/VQA 模型作为 RL policy 的起点
-LM_MODEL_NAME="./checkpoints/tbimh_step3_vqa_full-13b"   # 已是完整路径，就不要再拼 MODEL_DIR 了
 
-# ====== 数据配置（SFT 格式，而不是偏好数据）======
-SFT_DATA="tbimh_sft_init.json"     # 指令跟随数据（可复用你 Step2/Step3 的指令数据）
+LM_MODEL_NAME="./checkpoints/tbimh_step3_vqa_full-13b"   
+
+# ====== 数据配置======
+SFT_DATA="tbimh_sft_init.json"     
 IMAGE_ROOT="tbimh_images"
 
 # ====== 保存配置 ======
